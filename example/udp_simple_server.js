@@ -14,7 +14,7 @@ server.on('message', function(msg, info) {
   console.log('Data received from client : ' + msg.toString());
   console.log('Received %d bytes from %s:%d\n', msg.length, info.address, info.port);
 
-  server.send(msg, info.port, 'localhost', function(error) {
+  server.send(msg, info.port, info.address, function(error) {
     if (error) {
       console.log('ERROR!!!');
       console.error(error);
@@ -40,4 +40,4 @@ server.on('close', function() {
   console.log('Socket is closed !');
 });
 
-server.bind(2222);
+server.bind(42000);
